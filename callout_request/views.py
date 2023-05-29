@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from django.views import generic 
+from django.views import generic
 from .models import Request 
+
 
 
 class RequestList(generic.ListView):
@@ -9,3 +10,8 @@ class RequestList(generic.ListView):
     template_name = 'index.html'
     paginate_by = 6 
 
+
+class AddRequest(generic.CreateView):
+    model = Request
+    template_name = 'add_request.html'
+    fields = '__all__'

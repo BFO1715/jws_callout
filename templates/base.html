@@ -43,10 +43,10 @@
                         <a class="nav-link" href="#"><strong>Logout</strong></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><strong>Request Callout</strong></a>
+                        <a class="nav-link" href="{% url 'add_request' %}"><strong>Request Callout</strong></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><strong>Admin</strong></a>
+                        <a class="nav-link" href="{% url 'admin:index' %}"><strong>Admin</strong></a>
                     </li>
                     {% else %}
                     <li class="nav-item">
