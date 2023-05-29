@@ -1,5 +1,6 @@
 from django import forms
 from .models import Request
+from .models import Comment
 
 class RequestForm(forms.ModelForm):
     class Meta:
@@ -15,4 +16,9 @@ class RequestForm(forms.ModelForm):
             'content': forms.Textarea(attrs={'class': 'form-control'}),
         }
 
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('body',)
         

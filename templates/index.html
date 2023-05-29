@@ -23,7 +23,7 @@
                                     <p class="author">Author: {{ request.author }}</p>
                                 </div>
                             </div>
-                            <a href="#" class="request-link">
+                            <a href="{% url 'request_detail' request.slug  %}" class="request-link">
                                 <h2 class="card-title">{{ request.description }}</h2>
                                 <p class="card-text">{{ request.excerpt }}</p>
                             </a>

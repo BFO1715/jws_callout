@@ -16,7 +16,7 @@
                 {% if "placeholder" in request.featured_image.url %}
                 <img src="https://www.johnwhiteandson.com/wp-content/uploads/2021/10/JWS-services.jpg" width="100%">
                 {% else %}
-                <img src=" {{ post.featured_image.url }}" width="100%">
+                <img src=" {{ request.featured_image.url }}" width="100%">
                 {% endif %}
             </div>
         </div>
