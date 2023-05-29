@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from django.urls import reverse
 
 class Request(models.Model):
     description = models.CharField(max_length=200, unique=True)
@@ -19,6 +20,9 @@ class Request(models.Model):
     
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('home', args=(str(self.id)))
 
 
 class Comment(models.Model):

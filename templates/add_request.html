@@ -3,11 +3,11 @@
 {% block content %}
 
 <h1>Add Callout Request<h1>
-
+<br>
 <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
-    <button>Request</button>
+    <button class="btn btn-secondary">Request</button>
 </form>
 
 {%endblock%}
