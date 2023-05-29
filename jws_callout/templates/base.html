@@ -1,0 +1,97 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html class="h-100">
+
+<head>
+    <title>JWS Callout Request</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+<body class="d-flex flex-column h-100 main-bg">
+
+    <!-- Navigation -->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light-grey">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <img src="https://www.johnwhiteandson.com/wp-content/uploads/2021/04/Update-John-White-and-Son-Logo.png" alt="JWS Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'home' %}"><strong>Home</strong></a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><strong>Logout</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><strong>Request Callout</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><strong>Admin</strong></a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><strong>Register</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><strong>Login</strong></a>
+                    </li>
+                    {% endif %}
+                </ul>
+                <span class="navbar-text text-muted">
+                    <strong>Please post your Callout Request here!</strong><br>
+                    Email: enquiries@johnwhiteandson.com<br>
+                    Phone: 03301 755 820<br>
+                    Locations: Fife | Glasgow | Aberdeen | Newcastle
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-shrink-0 main-bg">
+        {% block content %}
+        <!-- Content Goes here -->
+        {% endblock content %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer mt-auto py-3 dark-bg">
+        <div class="d-flex justify-content-between align-items-center">
+          <div>
+            <p class="m-0 text-white"><a href="https://www.johnwhiteandson.com/" target="_blank" class="text-white">John White & Son (WM) Ltd</a></p>
+          </div>
+          <div class="text-center flex-grow-1">
+            <p class="m-0 text-white">&copy; JWS</p>
+          </div>
+          <div>
+            <p class="m-0 text-white">Follow us:
+              <a href="https://uk.linkedin.com/company/jws1715" target="_blank" class="text-white"><i class="fab fa-linkedin ms-3"></i></a>
+              <a href="https://twitter.com/JWS1715" target="_blank" class="text-white"><i class="fab fa-twitter-square ms-3"></i></a>
+              <a href="https://www.instagram.com/jws1715/" target="_blank" class="text-white"><i class="fab fa-instagram-square ms-3"></i></a>
+              <a href="https://www.facebook.com/JWS1715" target="_blank" class="text-white"><i class="fab fa-facebook-square ms-3"></i></a>
+            </p>
+          </div>
+        </div>
+    </footer>
+</body>
+
+</html>
