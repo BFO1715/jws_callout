@@ -22,7 +22,7 @@ class Request(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('home', args=(str(self.id)))
+        return reverse('home')
 
 
 class Comment(models.Model):
