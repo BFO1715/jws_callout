@@ -1,0 +1,1 @@
+web: gunicorn jws_callout.wsgi
