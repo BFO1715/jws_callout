@@ -19,7 +19,7 @@ class Request(models.Model):
         ordering = ["-created_on"]
     
     def __str__(self):
-        return self.title
+        return self.description
 
     def get_absolute_url(self):
         return reverse('home')
