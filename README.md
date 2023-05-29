@@ -4,7 +4,7 @@ npm install -g heroku<br>
 heroku login -i<br>
 check env.py
 
-admin<br>
+Admin<br>
 Weigh1715<br>
 bethan@johnwhiteandson.com<br>
 APi Key
