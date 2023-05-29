@@ -13,13 +13,11 @@ class RequestList(generic.ListView):
 
 
 class RequestDetail(View):
-
     def get(self, request, slug, *args, **kwargs):
         queryset = Request.objects.filter(slug=slug)
         request_obj = get_object_or_404(queryset, slug=slug)
         comments = request_obj.comments.filter(approved=True).order_by("-created_on")
         
-
         return render(
             request,
             "callout_request.html",
@@ -41,12 +39,11 @@ class RequestDetail(View):
             comment_form.instance.email = request.user.email
             comment_form.instance.name = request.user.username
             comment = comment_form.save(commit=False)
-            comment.rewuest = request
+            comment.request = request_obj  # Use request_obj, not request
             comment.save()
         else:
-            comment_form = CommentForm()
+            comment_form = CommentForm(data=request.POST)  # Reuse the existing form instance
         
-
         return render(
             request,
             "callout_request.html",
@@ -54,7 +51,7 @@ class RequestDetail(View):
                 "request": request,
                 "comments": comments,
                 "commented": True,
-                "comment_form": CommentForm()
+                "comment_form": comment_form  # Use the existing form instance
             },
         )
 
