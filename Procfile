@@ -1,1 +1,1 @@
-web:gunicorn jws_callout.wsgi
+web: gunicorn jws_callout.wsgi
