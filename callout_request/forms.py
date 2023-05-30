@@ -16,6 +16,12 @@ class RequestForm(forms.ModelForm):
             'content': forms.Textarea(attrs={'class': 'form-control'}),
         }
 
+    def __init__(self, *args, **kwargs):
+        user = kwargs.pop('user', None)
+        super().__init__(*args, **kwargs)
+        self.fields['author'].disabled = True  # Prevent modifying the author field
+        if user:
+            self.fields['author'].initial = user
 
 class CommentForm(forms.ModelForm):
     class Meta:

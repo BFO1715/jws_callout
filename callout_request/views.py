@@ -61,6 +61,11 @@ class AddRequest(generic.CreateView):
     form_class = RequestForm
     template_name = 'add_request.html'
 
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['user'] = self.request.user
+        return kwargs
+
 class EditRequest(generic.UpdateView):
     model = Request
     template_name = 'edit_request.html'
