@@ -63,4 +63,4 @@ class AddRequest(generic.CreateView):
 class EditRequest(generic.UpdateView):
     model = Request
     template_name = 'edit_request.html'
-    fields = ['description', 'slug', 'featured_image', 'excerpt', 'content']
+    form_class = RequestForm
