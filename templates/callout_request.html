@@ -7,16 +7,16 @@
         <div class="row g-0">
             <div class="col-md-6 masthead-text">
                 <!-- Post title goes in these h1 tags -->
-                <h1 class="request-title">{{ request.title }}</h1>
+                <h1 class="request-title">{{ request_obj.title }}</h1>
                 <!-- Post author goes before the | the post's created date goes after -->
-                <p class="request-subtitle">{{ request.author }} | {{ request.created_on }}</p>
+                <p class="request-subtitle">{{ request_obj.author }} | {{ request_obj.created_on }}</p>
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
                 <!-- The featured image URL goes in the src attribute -->
-                {% if "placeholder" in request.featured_image.url %}
+                {% if "placeholder" in request_obj.featured_image.url %}
                 <img src="https://www.johnwhiteandson.com/wp-content/uploads/2021/10/JWS-services.jpg" width="100%">
                 {% else %}
-                <img src=" {{ request.featured_image.url }}" width="100%">
+                <img src=" {{ request_obj.featured_image.url }}" width="100%">
                 {% endif %}
             </div>
         </div>
@@ -30,7 +30,7 @@
                 <!-- The post content goes inside the card-text. -->
                 <!-- Use the | safe filter inside the template tags -->
                 <p class="card-text ">
-                    {{ request.content | safe }}
+                    {{ request_obj.content | safe }}
                 </p>
                 <div class="row">
 
@@ -39,6 +39,7 @@
                         {% with comments.count as total_comments %}
                         <strong class="text-secondary"><i class="far fa-comments"></i>
                             <!-- Our total_comments variable goes before the closing strong tag -->
+                            {{ total_comments }}
                         </strong>
                         {% endwith %}
                     </div>

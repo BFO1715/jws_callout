@@ -12,17 +12,17 @@ class RequestList(generic.ListView):
     paginate_by = 6 
 
 
-class RequestDetail(View):
+class RequestDetail(generic.View):
     def get(self, request, slug, *args, **kwargs):
         queryset = Request.objects.filter(slug=slug)
         request_obj = get_object_or_404(queryset, slug=slug)
         comments = request_obj.comments.filter(approved=True).order_by("-created_on")
-        
+
         return render(
             request,
             "callout_request.html",
             {
-                "request": request,
+                "request_obj": request_obj,
                 "comments": comments,
                 "commented": False,
                 "comment_form": CommentForm()
@@ -43,12 +43,12 @@ class RequestDetail(View):
             comment.save()
         else:
             comment_form = CommentForm(data=request.POST)  # Reuse the existing form instance
-        
+
         return render(
             request,
             "callout_request.html",
             {
-                "request": request,
+                "request_obj": request_obj,
                 "comments": comments,
                 "commented": True,
                 "comment_form": comment_form  # Use the existing form instance
@@ -59,4 +59,8 @@ class AddRequest(generic.CreateView):
     model = Request
     form_class = RequestForm
     template_name = 'add_request.html'
-  
+
+class EditRequest(generic.UpdateView):
+    model = Request
+    template_name = 'edit_request.html'
+    fields = ['description', 'slug', 'featured_image', 'excerpt', 'content']
