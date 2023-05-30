@@ -21,8 +21,10 @@
                                 <div class="image-flash">
                                     <p class="user">user: {{ request.user }} |
                                         {% if user.is_authenticated %}
-                                            <a href="{% url 'edit_request' request.slug %}" style="font-size: 12px; color: white;">Edit Request</a> |
-                                            <a href="{% url 'delete_request' request.slug %}" style="font-size: 12px; color: white;">Delete Request</a>
+                                            {% if user == request.user or user.is_superuser %}
+                                                <a href="{% url 'edit_request' request.slug %}" style="font-size: 12px; color: white;">Edit Request</a> |
+                                                <a href="{% url 'delete_request' request.slug %}" style="font-size: 12px; color: white;">Delete Request</a>
+                                            {% endif %}
                                         {% endif %}
                                     </p>
                                 </div>
