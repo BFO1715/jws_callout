@@ -19,7 +19,7 @@
                                 <img class="card-img-top" src="{{ request.featured_image.url }}">
                                 {% endif %}
                                 <div class="image-flash">
-                                    <p class="author">Author: {{ request.author }} |
+                                    <p class="user">user: {{ request.user }} |
                                         {% if user.is_authenticated %}
                                             <a href="{% url 'edit_request' request.slug %}" style="font-size: 12px; color: white;">Edit Request</a> |
                                             <a href="{% url 'delete_request' request.slug %}" style="font-size: 12px; color: white;">Delete Request</a>

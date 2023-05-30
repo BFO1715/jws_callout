@@ -5,13 +5,13 @@ from .models import Comment
 class RequestForm(forms.ModelForm):
     class Meta:
         model = Request
-        fields = ('description', 'slug', 'featured_image', 'author', 'equipment', 'content')
+        fields = ('description', 'slug', 'featured_image', 'user', 'equipment', 'content')
 
         widgets = {
             'description': forms.TextInput(attrs={'class': 'form-control'}),
             'slug': forms.TextInput(attrs={'class': 'form-control'}),
             'featured_image': forms.FileInput(attrs={'class': 'form-control'}),
-            'author': forms.Select(attrs={'class': 'form-control'}),
+            'user': forms.Select(attrs={'class': 'form-control'}),
             'equipment': forms.Textarea(attrs={'class': 'form-control'}),
             'content': forms.Textarea(attrs={'class': 'form-control'}),
         }
@@ -19,9 +19,9 @@ class RequestForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         user = kwargs.pop('user', None)
         super().__init__(*args, **kwargs)
-        self.fields['author'].disabled = True  # Prevent modifying the author field
+        self.fields['user'].disabled = True  # Prevent modifying the user field
         if user:
-            self.fields['author'].initial = user
+            self.fields['user'].initial = user
 
 class CommentForm(forms.ModelForm):
     class Meta:
