@@ -13,6 +13,8 @@ python3 manage.py makemigrations<br>
 python3 manage.py migrate<br>
 python3 manage.py runserver
 
+jws-callout.heroku.com
+
 import os
 
 os.environ["DATABASE_URL"]="postgres://altiihsq:Vecuor_Jvir81c122tOv3w-qRkmRBnXN@lucky.db.elephantsql.com/altiihsq"
