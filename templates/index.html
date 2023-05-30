@@ -14,23 +14,25 @@
                         <div class="card-body">
                             <div class="image-container">
                                 {% if "placeholder" in request.featured_image.url %}
-                                <img class="card-img-top"
-                                    src="https://www.johnwhiteandson.com/wp-content/uploads/2021/10/JWS-services.jpg">
+                                <img class="card-img-top" src="https://www.johnwhiteandson.com/wp-content/uploads/2021/10/JWS-services.jpg">
                                 {% else %}
-                                <img class="card-img-top" src=" {{ request.featured_image.url }}">
+                                <img class="card-img-top" src="{{ request.featured_image.url }}">
                                 {% endif %}
                                 <div class="image-flash">
-                                    <p class="author">Author: {{ request.author }} | <a href="{% url 'edit_request' request.slug %}" style="font-size: 12px; color: white;">Edit Request</a> | 
-                                    <a href="{% url 'delete_request' request.slug %}" style="font-size: 12px; color: white;">Delete Request</a>
+                                    <p class="author">Author: {{ request.author }} |
+                                        {% if user.is_authenticated %}
+                                            <a href="{% url 'edit_request' request.slug %}" style="font-size: 12px; color: white;">Edit Request</a> |
+                                            <a href="{% url 'delete_request' request.slug %}" style="font-size: 12px; color: white;">Delete Request</a>
+                                        {% endif %}
                                     </p>
                                 </div>
                             </div>
-                            <a href="{% url 'request_detail' request.slug  %}" class="request-link">
+                            <a href="{% url 'request_detail' request.slug %}" class="request-link">
                                 <h2 class="card-title">{{ request.description }}</h2>
                                 <p class="card-text">{{ request.equipment }}</p>
                             </a>
                             <hr />
-                            <p class="card-text text-muted h6">{{ request.created_on}}</p>
+                            <p class="card-text text-muted h6">{{ request.created_on }}</p>
                         </div>
                     </div>
                 </div>
@@ -47,14 +49,14 @@
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
             {% if page_obj.has_previous %}
-            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a></li>
             {% endif %}
             {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link">NEXT &raquo;</a></li>
 
             {% endif %}
         </ul>
     </nav>
     {% endif %}
 </div>
-{%endblock%}
+{% endblock %}
