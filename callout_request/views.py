@@ -3,6 +3,7 @@ from django.views import generic, View
 from .models import Request 
 from .forms import RequestForm
 from .forms import CommentForm
+from django.urls import reverse_lazy
 
 
 class RequestList(generic.ListView):
@@ -64,3 +65,8 @@ class EditRequest(generic.UpdateView):
     model = Request
     template_name = 'edit_request.html'
     form_class = RequestForm
+
+class DeleteRequest(generic.DeleteView):
+    model = Request
+    template_name = 'delete_request.html'
+    success_url = reverse_lazy('home')

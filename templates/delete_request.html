@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<br>
+<h5 class="title"><strong><u>Delete Callout Request</u></strong></h5>
+<br>
+<h5 class="title">Delete: {{ request.description }}</h5><br>
+
+<div class="form-group">
+    <form method="POST">
+        {% csrf_token %}
+        <strong>Are you sure?</strong><br><br>
+        <button class="btn btn-secondary">Delete</button>
+    </form>
+</div>
+
+{%endblock%}
