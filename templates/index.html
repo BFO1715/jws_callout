@@ -20,7 +20,7 @@
                                 <img class="card-img-top" src=" {{ request.featured_image.url }}">
                                 {% endif %}
                                 <div class="image-flash">
-                                    <p class="author">Author: {{ request.author }} - <a href="{% url 'edit_request' request.slug  %}">Edit Request</a></p>
+                                    <p class="author">Author: {{ request.author }} - <a href="{% url 'edit_request' request.slug %}" style="font-size: 12px; color: white;">Edit Request</a></p>
                                 </div>
                             </div>
                             <a href="{% url 'request_detail' request.slug  %}" class="request-link">
