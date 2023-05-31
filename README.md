@@ -1,24 +1,5 @@
 # JWS Callout Request
 
-npm install -g heroku<br>
-heroku login -i<br>
-check env.py
-
-bethan@johnwhiteandson.com<br>
-APi Key
-
-python3 manage.py makemigrations<br>
-python3 manage.py migrate<br>
-python3 manage.py runserver
-
-import os
-
-os.environ["DATABASE_URL"]="postgres://altiihsq:Vecuor_Jvir81c122tOv3w-qRkmRBnXN@lucky.db.elephantsql.com/altiihsq"
-os.environ["SECRET_KEY"]="my-jws-secret-key"
-os.environ["CLOUDINARY_URL"]="cloudinary://798566658129613:ExOirMglR8aUVwNJdFs86BDFk6U@diplwfbus"
-
-
-
 The JWS Callout Request website is designed to streamline the process of requesting callouts for malfunctioning weighing equipment. We understand the importance of accurate measurements in various industries, and our platform aims to minimize downtime and ensure efficient maintenance. With just a few clicks, you can submit a callout request, providing details about the specific equipment and issue. Our team of skilled technicians will promptly review your request and dispatch the nearest available expert to address the problem. Our goal is to provide a seamless user experience and ensure that your weighing machines are up and running in no time, minimizing any disruptions to your operations. Trust our JWS website to simplify the process of resolving issues with your weighing machines.
 
 <img src="assets/images/website.png" alt="Website" width="350" height="200"> <img src="assets/images/request_callout.png" alt="Request Callout Test" width="350" height="200"> <img src="assets/images/comment.png" alt="Comment" width="350" height="200">
@@ -148,19 +129,27 @@ User can only edit or delete their own requests unless they are Admin:
 
 <img src="assets/images/auth.png" alt="Auth Test" width="1200" height="200"><br>
 
-Tested Python code PEP8 on https://www.pythonchecker.com/ with one minor issue found which was a duplicate import:
+Tested Python code Snyx on https://snyk.io/code-checker/python/ and passed with one minor issue found which was a duplicate import:
 
+<img src="assets/images/python_test.png" alt="Python Test" width="350" height="200"><br>
 
+Tested HTML code on W3C https://validator.w3.org/ and passed with 1 warning and 3 infos:
 
-Tested HTML code on W3C https://validator.w3.org/
-
-
+<img src="assets/images/html_test.png" alt="HTML Test" width="350" height="200"><br>
 
 Tested CSS code on Jigsaw https://jigsaw.w3.org/css-validator/ and passed with 2 warnings:
 
 <img src="assets/images/css_test.png" alt="CSS Test" width="350" height="200"><br>
 
 No bugs found in program other typos causing issues and debug had to be turned to FALSE for app to show correct styling. 
+
+env.py has to be reinstalled upon restarting workspace:
+
+import os
+
+os.environ["DATABASE_URL"]="postgres://altiihsq:Vecuor_Jvir81c122tOv3w-qRkmRBnXN@lucky.db.elephantsql.com/altiihsq"
+os.environ["SECRET_KEY"]="my-jws-secret-key"
+os.environ["CLOUDINARY_URL"]="cloudinary://798566658129613:ExOirMglR8aUVwNJdFs86BDFk6U@diplwfbus"
 
 <strong><u>DEPLOYMENT</u></strong>
 
