@@ -14,7 +14,7 @@
                         <div class="card-body">
                             <div class="image-container">
                                 {% if "placeholder" in request.featured_image.url %}
-                                <img class="card-img-top" src="https://www.johnwhiteandson.com/wp-content/uploads/2021/10/JWS-services.jpg">
+                                <img class="card-img-top" src="https://www.johnwhiteandson.com/wp-content/uploads/2021/10/JWS-services.jpg" alt="JWS Services">
                                 {% else %}
                                 <img class="card-img-top" src="{{ request.featured_image.url }}">
                                 {% endif %}

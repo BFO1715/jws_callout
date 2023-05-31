@@ -2,6 +2,7 @@ from django import forms
 from .models import Request
 from .models import Comment
 
+# Request form
 class RequestForm(forms.ModelForm):
     class Meta:
         model = Request
@@ -16,13 +17,15 @@ class RequestForm(forms.ModelForm):
             'content': forms.Textarea(attrs={'class': 'form-control'}),
         }
 
+
     def __init__(self, *args, **kwargs):
         user = kwargs.pop('user', None)
         super().__init__(*args, **kwargs)
-        self.fields['user'].disabled = True  # Prevent modifying the user field
+        self.fields['user'].disabled = True  
         if user:
             self.fields['user'].initial = user
 
+# Comment form
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment

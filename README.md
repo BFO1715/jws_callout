@@ -4,16 +4,12 @@ npm install -g heroku<br>
 heroku login -i<br>
 check env.py
 
-Admin/WeighingCompany<br>
-Weigh1715<br>
 bethan@johnwhiteandson.com<br>
 APi Key
 
 python3 manage.py makemigrations<br>
 python3 manage.py migrate<br>
 python3 manage.py runserver
-
-jws-callout.heroku.com
 
 import os
 
@@ -25,7 +21,7 @@ os.environ["CLOUDINARY_URL"]="cloudinary://798566658129613:ExOirMglR8aUVwNJdFs86
 
 The JWS Callout Request website is designed to streamline the process of requesting callouts for malfunctioning weighing equipment. We understand the importance of accurate measurements in various industries, and our platform aims to minimize downtime and ensure efficient maintenance. With just a few clicks, you can submit a callout request, providing details about the specific equipment and issue. Our team of skilled technicians will promptly review your request and dispatch the nearest available expert to address the problem. Our goal is to provide a seamless user experience and ensure that your weighing machines are up and running in no time, minimizing any disruptions to your operations. Trust our JWS website to simplify the process of resolving issues with your weighing machines.
 
-<img src="assets/images/website.png" alt="Website" width="400" height="200">
+<img src="assets/images/website.png" alt="Website" width="350" height="200"> <img src="assets/images/request_callout.png" alt="Request Callout Test" width="350" height="200"> <img src="assets/images/comment.png" alt="Comment" width="350" height="200">
 
 <strong><u>STRATEGY</u></strong>
 
@@ -62,18 +58,24 @@ These features aim to provide users with a seamless and efficient experience whe
 
 How is the user interaction designed?<br> 
 
-<img src="assets/images/request_process.png" alt="Request Process" width="400" height="100"><br>
+Below is a flowchart of how a user will use the website and a Kanban board with milestones devolped using User stories:
+
+<img src="assets/images/request_process.png" alt="Request Process" width="350" height="100"><br>
+
+<img src="assets/images/user_story.png" alt="User Story" width="700" height="200"><br>
 
 <strong><u>SURFACE</u></strong>
 
 What will the visual design look like?<br>
 
-<img src="assets/images/website_wireframe.png" alt="Website Wireframe" width="400" height="200"><br>
+Below is a wireframe for what the website will look like with the main body changing depending which section the user is interacting with:
+
+<img src="assets/images/website_wireframe.png" alt="Website Wireframe" width="350" height="200"><br>
 
 <strong><u>FUTURE RELEASES</u></strong>
 
 What features would you like to have in the future?<br>
-Knowledge Base and Resources: Building a comprehensive knowledge base and resource section on the website could provide users with informative articles, FAQs, troubleshooting guides, and maintenance tips. This would empower users to resolve common issues on their own and enhance their understanding of weighing machine maintenance.
+Building a comprehensive knowledge base and resource section on the website could provide users with informative articles, FAQs, troubleshooting guides, and maintenance tips. This would empower users to resolve common issues on their own and enhance their understanding of weighing machine maintenance.
 
 <strong><u>TECHNOLOGY</u></strong>
 
@@ -94,25 +96,29 @@ What technology was used?<br>
 
 I created a set of test scenarios covering different aspects of the system, such as admin panel, register, login, callout request creation, editing, deleting, comments approval/submission and authorization.
 
+Admin/Weigh1715<br>
+WeighingCompany/Weigh1715<br>
+OtherWeighingCompany/Weigh1715<br>
+
 Homepage:
 
-<img src="assets/images/homepage.png" alt="Homepage Test" width="400" height="200"><br>
+<img src="assets/images/homepage.png" alt="Homepage Test" width="350" height="200"><br>
 
 Request detail:
 
-<img src="assets/images/request_detail.png" alt="Request Detail Test" width="400" height="200"><br>
+<img src="assets/images/request_detail.png" alt="Request Detail Test" width="350" height="200"><br>
 
 Admin:
 
-<img src="assets/images/admin.png" alt="Admin Test" width="400" height="200"><br>
+<img src="assets/images/admin.png" alt="Admin Test" width="350" height="200"><br>
 
 Register:
 
-<img src="assets/images/register.png" alt="Register Test" width="400" height="200"><br>
+<img src="assets/images/register.png" alt="Register Test" width="350" height="200"><br>
 
 Sign In:
 
-<img src="assets/images/sign_in.png" alt="Sign In Test" width="400" height="200"><br>
+<img src="assets/images/sign_in.png" alt="Sign In Test" width="350" height="200"><br>
 
 When signed in can edit, delete and comment own request:
 
@@ -120,11 +126,11 @@ When signed in can edit, delete and comment own request:
 
 Sign out:
 
-<img src="assets/images/sign_out.png" alt="Sign Out Test" width="400" height="200"><br>
+<img src="assets/images/sign_out.png" alt="Sign Out Test" width="350" height="200"><br>
 
 Request Callout:
 
-<img src="assets/images/request_callout.png" alt="Request Callout Test" width="400" height="200"><br>
+<img src="assets/images/request_callout.png" alt="Request Callout Test" width="350" height="200"><br>
 
 Adding comment for approval:
 
@@ -132,23 +138,29 @@ Adding comment for approval:
 
 Edit Request:
 
-<img src="assets/images/edit_request.png" alt="Edit Request Test" width="400" height="200"><br>
+<img src="assets/images/edit_request.png" alt="Edit Request Test" width="350" height="200"><br>
 
 Delete Request:
 
-<img src="assets/images/delete_request.png" alt="Delete Request Test" width="400" height="200"><br>
+<img src="assets/images/delete_request.png" alt="Delete Request Test" width="350" height="200"><br>
 
 User can only edit or delete their own requests unless they are Admin:
 
-<img src="assets/images/auth.png" alt="Auth Test" width="1400" height="200"><br>
+<img src="assets/images/auth.png" alt="Auth Test" width="1200" height="200"><br>
 
-Tested Python code PEP8 on https://www.pythonchecker.com/
+Tested Python code PEP8 on https://www.pythonchecker.com/ with one minor issue found which was a duplicate import:
 
-Tested Javascript code on Jshint https://jshint.com/
+
 
 Tested HTML code on W3C https://validator.w3.org/
 
-Tested CSS code on Jigsaw https://jigsaw.w3.org/css-validator/
+
+
+Tested CSS code on Jigsaw https://jigsaw.w3.org/css-validator/ and passed with 2 warnings:
+
+<img src="assets/images/css_test.png" alt="CSS Test" width="350" height="200"><br>
+
+No bugs found in program other typos causing issues and debug had to be turned to FALSE for app to show correct styling. 
 
 <strong><u>DEPLOYMENT</u></strong>
 
@@ -156,7 +168,7 @@ How was the project deployed?<br>
 The project was deployed using Github, Gitpod and Heroku. The steps to deploy are as follows:<br>
 <ul>
 <li>Open Gitpod via Github repository</li>
-<li>Run python3 run.py to test program</li>
+<li>Run python3 manage.py runserver to test program</li>
 <li>Link Heroku to Githib and create new app</li>
 <li>Link Heroku app to repository</li>
 <li>Select Deploy</li>

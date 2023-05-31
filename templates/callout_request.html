@@ -14,7 +14,7 @@
             <div class="d-none d-md-block col-md-6 masthead-image">
                 <!-- The featured image URL goes in the src attribute -->
                 {% if "placeholder" in request_obj.featured_image.url %}
-                <img src="https://www.johnwhiteandson.com/wp-content/uploads/2021/10/JWS-services.jpg" width="100%">
+                <img src="https://www.johnwhiteandson.com/wp-content/uploads/2021/10/JWS-services.jpg" alt="JWS Services" width="100%">
                 {% else %}
                 <img src=" {{ request_obj.featured_image.url }}" width="100%">
                 {% endif %}
