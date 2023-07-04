@@ -141,9 +141,17 @@ Tested CSS code on Jigsaw https://jigsaw.w3.org/css-validator/ and passed with 2
 
 <img src="assets/images/css_test.png" alt="CSS Test" width="350" height="200"><br>
 
-No bugs found in program other typos causing issues and debug had to be turned to FALSE for app to show correct styling. 
+Bug found where non logged in users could access create, edit, delete and logged in users could edit and delete other users' posts by accessing urls directly via:
 
-env.py has to be reinstalled upon restarting workspace.
+https://jws-callout.herokuapp.com/add_request/
+https://jws-callout.herokuapp.com/edit/test-callout-request/
+https://jws-callout.herokuapp.com/delete/test-callout-request/
+
+<img src="assets/images/access_error.png" alt="Access Error" width="700" height="200"><br>
+
+Bug fixed by adding LoginRequiredMixin to rectify non logged in users issue and PermissionDenied for logged in user restriction:
+
+<img src="assets/images/access_fix.png" alt="Access Fix" width="700" height="200"><br>
 
 <strong><u>DEPLOYMENT</u></strong>
 
