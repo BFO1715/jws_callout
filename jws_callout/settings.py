@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['jws-callout.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['jws-callout.herokuapp.com', '8000-bfo1715-jwscallout-6e1qr9nqcr5.ws-eu101.gitpod.io', 'localhost']
 
 
 # Application definition

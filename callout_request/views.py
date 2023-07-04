@@ -4,6 +4,7 @@ from .models import Request
 from .forms import RequestForm
 from .forms import CommentForm
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Request list view
 class RequestList(generic.ListView):
@@ -11,7 +12,6 @@ class RequestList(generic.ListView):
     queryset = Request.objects.order_by('-created_on')
     template_name = 'index.html'
     paginate_by = 6 
-
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -62,24 +62,26 @@ class RequestDetail(generic.View):
                 "comment_form": comment_form  
             },
         )
+
 # Create request view
-class AddRequest(generic.CreateView):
+class AddRequest(LoginRequiredMixin, generic.CreateView):
     model = Request
     form_class = RequestForm
     template_name = 'add_request.html'
-
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
         kwargs['user'] = self.request.user
         return kwargs
+
 # Edit request view
-class EditRequest(generic.UpdateView):
+class EditRequest(LoginRequiredMixin, generic.UpdateView):
     model = Request
     template_name = 'edit_request.html'
     form_class = RequestForm
+
 # Delete request view
-class DeleteRequest(generic.DeleteView):
+class DeleteRequest(LoginRequiredMixin, generic.DeleteView):
     model = Request
     template_name = 'delete_request.html'
     success_url = reverse_lazy('home')
