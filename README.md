@@ -143,13 +143,7 @@ Tested CSS code on Jigsaw https://jigsaw.w3.org/css-validator/ and passed with 2
 
 No bugs found in program other typos causing issues and debug had to be turned to FALSE for app to show correct styling. 
 
-env.py has to be reinstalled upon restarting workspace:
-
-import os
-
-os.environ["DATABASE_URL"]="postgres://altiihsq:Vecuor_Jvir81c122tOv3w-qRkmRBnXN@lucky.db.elephantsql.com/altiihsq"
-os.environ["SECRET_KEY"]="my-jws-secret-key"
-os.environ["CLOUDINARY_URL"]="cloudinary://798566658129613:ExOirMglR8aUVwNJdFs86BDFk6U@diplwfbus"
+env.py has to be reinstalled upon restarting workspace.
 
 <strong><u>DEPLOYMENT</u></strong>
 
