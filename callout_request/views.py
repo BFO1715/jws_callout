@@ -5,6 +5,7 @@ from .forms import RequestForm
 from .forms import CommentForm
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.exceptions import PermissionDenied
 
 # Request list view
 class RequestList(generic.ListView):
@@ -80,8 +81,20 @@ class EditRequest(LoginRequiredMixin, generic.UpdateView):
     template_name = 'edit_request.html'
     form_class = RequestForm
 
+    def dispatch(self, request, *args, **kwargs):
+        obj = self.get_object()
+        if obj.user != request.user:
+            raise PermissionDenied
+        return super().dispatch(request, *args, **kwargs)
+
 # Delete request view
 class DeleteRequest(LoginRequiredMixin, generic.DeleteView):
     model = Request
     template_name = 'delete_request.html'
     success_url = reverse_lazy('home')
+
+    def dispatch(self, request, *args, **kwargs):
+        obj = self.get_object()
+        if obj.user != request.user:
+            raise PermissionDenied
+        return super().dispatch(request, *args, **kwargs)
